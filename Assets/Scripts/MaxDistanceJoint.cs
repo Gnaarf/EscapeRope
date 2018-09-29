@@ -13,7 +13,7 @@ public class MaxDistanceJoint : MonoBehaviour
     [SerializeField]
     float _maxDistance = 10F;
 
-    public float MaxDistance { get { return _maxDistance; } }
+    public float MaxDistance { get { return _maxDistance; } set { _maxDistance = value; } }
 
     [SerializeField]
     float forceIntensity = 10F;
