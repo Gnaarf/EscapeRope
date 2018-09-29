@@ -10,7 +10,7 @@ public class MaxDistanceJointContractor : MonoBehaviour
     float defaultLength;
 
     [SerializeField]
-    float pullSpeedFactor = 1F;
+    float contractedMaxDistance = 1F;
 
     // Use this for initialization
     void Start()
@@ -23,8 +23,7 @@ public class MaxDistanceJointContractor : MonoBehaviour
     {
         if (Input.GetButton("PullRope"))
         {
-            print("bluebb");
-            Joint.MaxDistance = 3;// -= Time.deltaTime * pullSpeedFactor;
+            Joint.MaxDistance = contractedMaxDistance;
         }
         else
         {

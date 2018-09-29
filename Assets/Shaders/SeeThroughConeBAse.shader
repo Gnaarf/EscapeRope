@@ -36,13 +36,14 @@
 		UNITY_FOG_COORDS(1)
 			float4 vertex : SV_POSITION;
 		float4 screenPos : TEXCOORD2;
-		float3 worldPos : TEXCOORD1;
+		float3 worldPos : TEXCOORD3;
 	};
 
 	sampler2D _MainTex;
 	sampler2D _Perlin;
 	float4 _MainTex_ST;
 	uniform float4 _PlayerPos;
+	uniform float4 _PlayerPos2;
 	uniform float4 _CamDir;
 	v2f vert(appdata v)
 	{
@@ -79,8 +80,19 @@
 
 		toUse = lerp(0.0, 1.0, smoothstep(0.04, noise /100. + 0.08 , toUse + noise/18.));
 
+		float3 dir2 = normalize(_WorldSpaceCameraPos - _PlayerPos2);
+		float3 fragToPlayer2 = i.worldPos.xyz - _PlayerPos2;
+		float distanceToPlayer2 = length(fragToPlayer2);
+		fragToPlayer2 = normalize(fragToPlayer2);
+		float toUse2 = dot(dir2, fragToPlayer2);
+		toUse2 = saturate(toUse2);
+		float checker2 = toUse2;
+		toUse2 = 1. - toUse2;
 
-		col.a = toUse ;
+		toUse2 = lerp(0.0, 1.0, smoothstep(0.04, noise / 100. + 0.08, toUse2 + noise / 18.));
+
+
+		col.a = toUse * toUse2;
 
 		return  col;
 	}
