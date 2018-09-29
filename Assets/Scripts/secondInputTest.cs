@@ -81,7 +81,7 @@ public class secondInputTest : MonoBehaviour
             {
                 float airborneFoce = 50f;
                 //rb.AddForce( AirBoring(horizontal, vertical) * airborneFoce);
-                rb.AddTorque(AirBoring(horizontal, vertical) * airborneFoce);
+                //rb.AddTorque(AirBoring(horizontal, vertical) * airborneFoce);
             }
 
             hastBeenUsed = true;
@@ -223,5 +223,13 @@ public class secondInputTest : MonoBehaviour
         toReturn = Quaternion.AngleAxis(((-1f * angle) * Mathf.Rad2Deg) - 90f, Vector3.up) * toReturn;
 
         return toReturn;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Color tmp = Gizmos.color;
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward * 5);
+        Gizmos.color = tmp;
     }
 }
