@@ -46,9 +46,9 @@ public class firstInputTest : MonoBehaviour {
         float vertical = Input.GetAxis("Vertical");
 
         
-        if (collidingWith.Count == 0) airing = true;
-        else airing = false;
 
+
+        airing = (collidingWith.Count == 0);
         if (( Mathf.Abs(vertical)+ Mathf.Abs(horizontal) ) >0.5f)
         {
             //Debug.Log(Mathf.Atan2(vertical, horizontal));
