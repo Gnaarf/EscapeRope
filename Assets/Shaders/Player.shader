@@ -65,16 +65,17 @@ Shader "Unlit/Player"
 
 				t2 = float4(cross(t1, clampedVelocity).xyz, 0.);
 
+				float tilingStretchiy = 500.;
 
 				float4 vertexWorldPos = mul(unity_ObjectToWorld, v.vertex);
 				float distanceToFront = pow( smoothstep(0.1, 2., distance(vertexWorldPos, _FrontPoint)), 3.);
 				float4 offset = -clampedVelocity * distanceToFront + (t1+t2)* - length(clampedVelocity)* pow(distanceToFront,8.) /700.;
-				o.vertex = UnityObjectToClipPos(v.vertex + offset/2000.);
+				o.vertex = UnityObjectToClipPos(v.vertex + offset/ tilingStretchiy);
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 				UNITY_TRANSFER_FOG(o,o.vertex);
 
 
-				o.worldPos = mul(unity_ObjectToWorld, float4(v.vertex.xyz + offset.xyz / 2000., 1)).xyz;
+				o.worldPos = mul(unity_ObjectToWorld, float4(v.vertex.xyz + offset.xyz / tilingStretchiy, 1)).xyz;
 
 				o.worldNormal = UnityObjectToWorldNormal(v.normal);
 				return o;
