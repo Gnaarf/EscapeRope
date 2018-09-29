@@ -10,7 +10,7 @@
 		Tags{ "Queue" = "Transparent" "RenderType" = "Transparent" }
 		Blend SrcAlpha OneMinusSrcAlpha
 
-		ZWrite Off
+		//ZWrite Off
 		LOD 100
 
 		Pass
@@ -77,7 +77,7 @@
 		
 		distanceToPlayer = smoothstep(1.7, 7., distanceToPlayer);
 
-		toUse = lerp(0.2, 1., smoothstep(0.04, noise /100. + 0.08 , toUse + noise/18.));
+		toUse = lerp(0.0, 1.0, smoothstep(0.04, noise /100. + 0.08 , toUse + noise/18.));
 
 
 		col.a = toUse ;
