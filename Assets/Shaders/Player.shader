@@ -40,6 +40,7 @@ Shader "Unlit/Player"
 				float4 vertex : SV_POSITION;
 				float3 worldPos : TEXCOORD2;
 				half3 worldNormal : TEXCOORD1;
+
 			};
 
 			sampler2D _MainTex;
