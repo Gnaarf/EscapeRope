@@ -73,7 +73,7 @@ public class firstInputTest : MonoBehaviour {
         }
 
 
-        //Debug.DrawRay(hit.hitPoint, hit.surfaceNormal * 10f);   
+        Debug.DrawRay(hit.hitPoint, hit.surfaceNormal * 10f);   
 	}
 
     private void OnCollisionEnter(Collision collision)
@@ -114,7 +114,7 @@ public class firstInputTest : MonoBehaviour {
         }
 
 
-        bool debug = false;
+        bool debug = true;
 
         if(debug)
         Debug.DrawRay(hit.hitPoint, direction * 10f);
@@ -132,7 +132,7 @@ public class firstInputTest : MonoBehaviour {
         Vector3 toReturn = Vector3.Cross(toConstruct, Vector3.up);
         if (toReturn.magnitude == 0f) toReturn = Vector3.Cross(toConstruct, cameraMain.transform.right);
         float angle = Mathf.Atan2(verti, hori);
-        //Debug.Log(angle);
+        Debug.Log(angle);
         toReturn = Quaternion.AngleAxis(((-1f * angle) * Mathf.Rad2Deg) - 90f , normal) * toReturn;
         toReturn = Vector3.Lerp(normal, toReturn, 0.5f);
         
