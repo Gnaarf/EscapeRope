@@ -60,7 +60,8 @@ public class firstInputTest : MonoBehaviour {
             {
                 float airborneFoce = 50f;
                 //rb.AddForce( AirBoring(horizontal, vertical) * airborneFoce);
-                rb.AddTorque(AirBoring(horizontal, vertical) * airborneFoce);
+                //rb.AddTorque(AirBoring(horizontal, vertical) * airborneFoce);
+                //this.transform.forward = rb.velocity.normalized;
             }
 
             hastBeenUsed = true;
