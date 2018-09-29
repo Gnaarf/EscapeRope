@@ -91,7 +91,77 @@ ModelImporter:
     4300022: Cylinder.002
     4300024: Cylinder.001
     4300026: Cylinder
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cylinder
+    second: {fileID: 2100000, guid: f2e4675d55aae584b8b91cade4c10beb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cylinder.001
+    second: {fileID: 2100000, guid: 7814f6557e6e28942abbea29f98a750a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cylinder.002
+    second: {fileID: 2100000, guid: 978b5fce1d11e5644b94ce2113995588, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cylinder.003
+    second: {fileID: 2100000, guid: 09906afcd7e4e0c47874ce5f84a3d137, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cylinder.004
+    second: {fileID: 2100000, guid: ba74056b883e69c4885ce30fc78e37d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cylinder.005
+    second: {fileID: 2100000, guid: 8a91cc27d47b6ea4882f72c56cb95f4b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cylinder.006
+    second: {fileID: 2100000, guid: d41a1c521a42be548b1d1337890c975b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cylinder.007
+    second: {fileID: 2100000, guid: 1fd66885ae03cd847a087de57b32bdf6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cylinder.008
+    second: {fileID: 2100000, guid: b481778733c020f408f232a304f1115a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cylinder.009
+    second: {fileID: 2100000, guid: 685de47836ad1314aa82c8cc8e638914, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cylinder.010
+    second: {fileID: 2100000, guid: 9903a8cc6cc15124daec60d1615abfe5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cylinder.011
+    second: {fileID: 2100000, guid: 699ae84f36d799544b3626df3470d999, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cylinder.012
+    second: {fileID: 2100000, guid: 94f7901a25c5e8d4c8200203ca13e689, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cylinder.019
+    second: {fileID: 2100000, guid: 6c98407ca93814b41a7d9f7ae023f0c8, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -177,7 +177,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100026, guid: d06da42f1cfd1394b8047bec74afc41a, type: 3}
+  - {fileID: 2100000, guid: f2e4675d55aae584b8b91cade4c10beb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -604,7 +604,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100018, guid: d06da42f1cfd1394b8047bec74afc41a, type: 3}
+  - {fileID: 2100000, guid: ba74056b883e69c4885ce30fc78e37d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -843,6 +843,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMat: {fileID: 2100000, guid: 3a48efb8966547645b07f060c5e439e2, type: 2}
+--- !u!114 &757492773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 757492762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8737c3bee84f3ea42b41ed57bbcb1226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerOne: 1
 --- !u!1 &890534790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,6 +1528,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMat: {fileID: 2100000, guid: 38c21db04bf914145ab7d9c15a452d4f, type: 2}
+--- !u!114 &1434293439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1434293429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8737c3bee84f3ea42b41ed57bbcb1226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerOne: 0
 --- !u!1 &1499134584 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100004, guid: 4bcc822391428a84b957aca6852b58b7,
@@ -1583,7 +1607,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100012, guid: d06da42f1cfd1394b8047bec74afc41a, type: 3}
+  - {fileID: 2100000, guid: 1fd66885ae03cd847a087de57b32bdf6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1659,7 +1683,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100024, guid: d06da42f1cfd1394b8047bec74afc41a, type: 3}
+  - {fileID: 2100000, guid: 7814f6557e6e28942abbea29f98a750a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
