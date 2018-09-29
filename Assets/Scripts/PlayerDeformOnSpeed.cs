@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerDeformOnSpeed : MonoBehaviour {
     Rigidbody rb;
-    Material playerMat;
+    public Material playerMat;
     RaycastHit[] hitInfos;
     Vector3 currentVelocity;
     Vector3 rayOrigin;
@@ -18,7 +18,6 @@ public class PlayerDeformOnSpeed : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rb = this.gameObject.GetComponent<Rigidbody>();
-        playerMat = this.gameObject.GetComponent<Renderer>().material;
         Vector3 extend = this.GetComponent<MeshFilter>().mesh.bounds.extents;
         offeset = Mathf.Max(Mathf.Max(extend.x, extend.y), extend.z) *2f;
 
@@ -48,6 +47,10 @@ public class PlayerDeformOnSpeed : MonoBehaviour {
 
             Debug.DrawRay(currentFront, currentVelocity);
         }
-		
-	}
+
+        playerMat.SetVector("_FrontPoint", currentFront);
+        playerMat.SetVector("_Velocity", currentVelocity);
+
+
+    }
 }
