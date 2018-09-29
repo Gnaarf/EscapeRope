@@ -39,7 +39,7 @@ Shader "Unlit/Player"
 				UNITY_FOG_COORDS(1)
 				float4 vertex : SV_POSITION;
 				float3 worldPos : TEXCOORD2;
-				half3 worldNormal : TEXCOORD1;
+				half3 worldNormal : TEXCOORD4;
 
 			};
 

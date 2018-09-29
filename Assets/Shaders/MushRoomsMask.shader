@@ -43,7 +43,7 @@
 		UNITY_FOG_COORDS(1)
 			float4 vertex : SV_POSITION;
 		float4 screenPos : TEXCOORD2;
-		float3 worldPos : TEXCOORD1;
+		float3 worldPos : TEXCOORD4;
 		half3 worldNormal : TEXCOORD3;
 	};
 
@@ -60,10 +60,25 @@
 	v2f vert(appdata v)
 	{
 		v2f o;
-		o.vertex = UnityObjectToClipPos(v.vertex);
+		float4 vertexGlobal = mul(unity_ObjectToWorld, v.vertex);
+		float distanceToPlayerOne = distance(vertexGlobal, _PlayerPos );
+		distanceToPlayerOne = smoothstep(0., 3., distanceToPlayerOne);
+
+		distanceToPlayerOne = 1. - distanceToPlayerOne;
+		//distanceToPlayerOne = pow(distanceToPlayerOne, 2.);
+		float4 playerToVertex = normalize(vertexGlobal - _PlayerPos);
+
+		float distanceToPlayerTwo = distance(vertexGlobal, _PlayerPos2);
+		distanceToPlayerTwo = smoothstep(0., 3., distanceToPlayerTwo);
+
+		distanceToPlayerTwo = 1. - distanceToPlayerTwo;
+		float4 playerToVertexTwo = normalize(vertexGlobal - _PlayerPos2);
+
+		float4 offset = playerToVertex * distanceToPlayerOne * 0.005 + playerToVertexTwo * distanceToPlayerTwo * 0.005;
+		o.vertex = UnityObjectToClipPos(v.vertex + offset);
 		o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 		o.screenPos = ComputeScreenPos(o.vertex);
-		o.worldPos =  mul(unity_ObjectToWorld, float4(v.vertex.xyz, 1)).xyz;
+		o.worldPos =  mul(unity_ObjectToWorld, float4(v.vertex.xyz + +offset, 1)).xyz;
 		UNITY_TRANSFER_FOG(o,o.vertex);
 		o.worldNormal = UnityObjectToWorldNormal(v.normal);
 		return o;
