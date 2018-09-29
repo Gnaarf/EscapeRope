@@ -113,6 +113,8 @@ public class secondInputTest : MonoBehaviour
         hit.surfaceNormal = collision.contacts[0].normal;
 
         collidingWith.Add(collision.collider);
+
+        AudioManager.sg.PlayOneShot();
     }
     private void OnCollisionExit(Collision collision)
     {
