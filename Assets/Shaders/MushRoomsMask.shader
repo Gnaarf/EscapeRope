@@ -4,6 +4,10 @@
 	{
 		_MainTex("Texture", 2D) = "white" {}
 		_Perlin("Perlin", 2D) = "white" {}
+		_lightness("lightness", Float) = 1
+		_OverlayColor("OverlayColor", Color)= (1,1,1,1)
+		_SeconderlyColor("SeconderyColor", Color) = (1,1,1,1)
+
 	}
 		SubShader
 	{
@@ -45,6 +49,9 @@
 	uniform float4 _PlayerPos;
 	uniform float4 _PlayerPos2;
 	uniform float4 _CamDir;
+	float _lightness;
+	float4 _OverlayColor;
+	float4 _SeconderlyColor;
 	v2f vert(appdata v)
 	{
 		v2f o;
@@ -86,7 +93,6 @@
 		toUse2 = 1. - toUse2;
 
 		
-		//distanceToPlayer = smoothstep(1.7, 7., distanceToPlayer);
 
 		toUse = lerp(0.0, 1.0, smoothstep(0.04, noise /100. + 0.08 , toUse + noise/18.));
 
@@ -94,7 +100,9 @@
 
 
 		col.a = toUse * toUse2;
-
+		col.xyz *= _lightness ;
+		col.xyz *= _OverlayColor;
+		col.xyz =lerp(col.xyz, _SeconderlyColor, step(0.9, (col.x + col.y + col.z) / 3.));
 		return  col;
 	}
 		ENDCG
