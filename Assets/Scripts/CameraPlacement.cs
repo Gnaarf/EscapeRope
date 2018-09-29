@@ -17,7 +17,10 @@ public class CameraPlacement : MonoBehaviour
 
         print(MainCamera);
 
-        offsetToCamera = CameraAnchors.Length == 0 ? transform.position : transform.position - CameraAnchors[0].position;
+        if (CameraAnchors.Length > 0)
+        {
+            offsetToCamera = MainCamera.transform.position - GetAveragePosition();
+        }
     }
 
     private void Update()
@@ -27,13 +30,20 @@ public class CameraPlacement : MonoBehaviour
 
     void SetCameraMovement()
     {
-        AnchorPoint = Vector3.zero;
-        foreach(Transform transform in CameraAnchors)
-        {
-            AnchorPoint += transform.position;
-        }
-        AnchorPoint /= CameraAnchors.Length;
+        AnchorPoint = GetAveragePosition();
 
         MainCamera.transform.position = AnchorPoint + offsetToCamera;
+    }
+
+    Vector3 GetAveragePosition()
+    {
+        Vector3 result = Vector3.zero;
+        foreach (Transform transform in CameraAnchors)
+        {
+            result += transform.position;
+        }
+        result /= CameraAnchors.Length;
+
+        return result;
     }
 }
