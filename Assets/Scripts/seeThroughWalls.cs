@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class seeThroughWalls : MonoBehaviour {
+
+    public bool playerOne;
     Camera mainCam;
 	// Use this for initialization
 	void Start () {
@@ -13,8 +15,16 @@ public class seeThroughWalls : MonoBehaviour {
 	void Update () {
         Vector2 ScreenPos = mainCam.WorldToScreenPoint(this.gameObject.transform.position);
         ScreenPos = new Vector2(ScreenPos.x/ mainCam.pixelWidth , ScreenPos.y / mainCam.pixelHeight);
-        Shader.SetGlobalVector("_PlayerScreenPos", ScreenPos);
-        Shader.SetGlobalVector("_PlayerPos", this.transform.position);
+        if (playerOne)
+        {
+
+            Shader.SetGlobalVector("_PlayerScreenPos", ScreenPos);
+            Shader.SetGlobalVector("_PlayerPos", this.transform.position);
+        } else
+        {
+            Shader.SetGlobalVector("_PlayerScreenPos2", ScreenPos);
+            Shader.SetGlobalVector("_PlayerPos2", this.transform.position);
+        }
         Shader.SetGlobalVector("_CamDir", mainCam.transform.forward);
     }
 }
