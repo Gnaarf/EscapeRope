@@ -5,8 +5,9 @@
 		_MainTex("Texture", 2D) = "white" {}
 		_Perlin("Perlin", 2D) = "white" {}
 		_lightness("lightness", Float) = 1
-		_OverlayColor("OverlayColor", Color)= (1,1,1,1)
+		_OverlayColor("OverlayColor", Color) = (1,1,1,1)
 		_SeconderlyColor("SeconderyColor", Color) = (1,1,1,1)
+		_UpLightingStrengh("UpLightingStrenght", Float) = 0.2
 
 	}
 		SubShader
@@ -30,7 +31,9 @@
 		struct appdata
 	{
 		float4 vertex : POSITION;
+		
 		float2 uv : TEXCOORD0;
+		float3 normal : NORMAL;
 
 	};
 
@@ -41,6 +44,7 @@
 			float4 vertex : SV_POSITION;
 		float4 screenPos : TEXCOORD2;
 		float3 worldPos : TEXCOORD1;
+		half3 worldNormal : TEXCOORD3;
 	};
 
 	sampler2D _MainTex;
@@ -52,6 +56,7 @@
 	float _lightness;
 	float4 _OverlayColor;
 	float4 _SeconderlyColor;
+	float _UpLightingStrengh;
 	v2f vert(appdata v)
 	{
 		v2f o;
@@ -60,6 +65,7 @@
 		o.screenPos = ComputeScreenPos(o.vertex);
 		o.worldPos =  mul(unity_ObjectToWorld, float4(v.vertex.xyz, 1)).xyz;
 		UNITY_TRANSFER_FOG(o,o.vertex);
+		o.worldNormal = UnityObjectToWorldNormal(v.normal);
 		return o;
 	}
 
@@ -103,6 +109,11 @@
 		col.xyz *= _lightness ;
 		col.xyz *= _OverlayColor;
 		col.xyz =lerp(col.xyz, _SeconderlyColor, step(0.9, (col.x + col.y + col.z) / 3.));
+
+		float upLighting = dot(float3(0., 1., 0.), i.worldNormal.xyz);
+		upLighting = saturate(upLighting);
+
+		col.xyz += upLighting*_UpLightingStrengh;
 		return  col;
 	}
 		ENDCG
