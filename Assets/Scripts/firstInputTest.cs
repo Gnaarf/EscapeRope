@@ -41,9 +41,7 @@ public class firstInputTest : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        SetCameraMovement();
-
+        
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
@@ -147,11 +145,5 @@ public class firstInputTest : MonoBehaviour {
         toReturn = Quaternion.AngleAxis(((-1f * angle) * Mathf.Rad2Deg) - 90f, Vector3.up) * toReturn;
 
         return toReturn;
-    }
-
-
-    void SetCameraMovement()
-    {
-        cameraMain.transform.position = this.transform.position + offsetToCamera;
     }
 }

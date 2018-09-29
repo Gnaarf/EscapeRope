@@ -34,9 +34,10 @@ public class RopeGenerator : MonoBehaviour
         Joint previousSegment = null;
         Joint currentSegment = null;
 
-        for (int i = 0; i < SegmentCount; ++i)
+        for (int i = 1; i < SegmentCount - 1; ++i)
         {
-            currentSegment = Instantiate(RopeSegment, this.transform);
+            currentSegment = Instantiate(RopeSegment, GetRopeSegmentPosition(i), Quaternion.identity);
+            currentSegment.transform.parent = this.transform;
 
             RopeSegments.Add(currentSegment);
 
@@ -49,8 +50,6 @@ public class RopeGenerator : MonoBehaviour
 
             previousSegment = currentSegment;
         }
-
-        ResetRopeSegmentPositions();
 
         Destroy(currentSegment);
 
@@ -66,28 +65,21 @@ public class RopeGenerator : MonoBehaviour
         }
     }
 
-
-
-    private void ResetRopeSegmentPositions()
-    {
-        for (int i = 0; i < SegmentCount; ++i)
-        {
-            RopeSegments[i].transform.position = GetRopeSegmentPosition(i);
-        }
-    }
-
     private Vector3 GetRopeSegmentPosition(int RopeSegmentIndex)
     {
         Vector3 startPosition = StartConnectedBody == null ? Vector3.zero : StartConnectedBody.transform.position;
         Vector3 endPosition = EndConnectedBody == null ? Vector3.one : EndConnectedBody.transform.position;
-        return Vector3.Lerp(startPosition, endPosition, RopeSegmentIndex / (float)SegmentCount);
+        return Vector3.Lerp(startPosition, endPosition, RopeSegmentIndex / (float)(SegmentCount - 1));
     }
 
     private void OnDrawGizmos()
     {
-        for (int i = 0; i < SegmentCount; ++i)
+        if (RopeSegment != null)
         {
-            Gizmos.DrawWireSphere(GetRopeSegmentPosition(i), RopeSegment.transform.lossyScale.x / 3F);
+            for (int i = 1; i < SegmentCount - 1; ++i)
+            {
+                Gizmos.DrawWireSphere(GetRopeSegmentPosition(i), RopeSegment.transform.lossyScale.x / 3F);
+            }
         }
     }
 }
