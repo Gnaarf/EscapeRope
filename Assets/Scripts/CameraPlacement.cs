@@ -31,8 +31,10 @@ public class CameraPlacement : MonoBehaviour
     void SetCameraMovement()
     {
         AnchorPoint = GetAveragePosition();
-
+        
         MainCamera.transform.position = AnchorPoint + offsetToCamera;
+        Vector3 buffer = MainCamera.transform.position;
+        MainCamera.transform.position = new Vector3(Mathf.Max( Mathf.Min(4.6f,buffer.x), - 1.3f), Mathf.Max(9.77f, buffer.y), Mathf.Min(buffer.z, 18.15f));
     }
 
     Vector3 GetAveragePosition()
