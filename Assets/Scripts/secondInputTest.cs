@@ -64,6 +64,11 @@ public class secondInputTest : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal" + playerIndex);
         float vertical = Input.GetAxis("Vertical" + playerIndex);
 
+        foreach(Collider cd in collidingWith)
+        {
+            if (cd.gameObject.activeInHierarchy == false) collidingWith.Remove(cd);
+        }
+        print(collidingWith.Count);
 
         if (collidingWith.Count == 0) airing = true;
         else airing = false;
@@ -131,6 +136,7 @@ public class secondInputTest : MonoBehaviour
                 break;
 
             case ControlScheme.Simple:
+                //print("performing jump, surface is: " + collidingWith[0].ToString());
                 PerformSimpleControlScheme(info, horizontal, vertical);
                 break;
         }
@@ -148,11 +154,12 @@ public class secondInputTest : MonoBehaviour
             }
         }
 
+        /*
         if (runInEditMode)
         {
             Vector3 direction = OriginalDirection(hit.surfaceNormal, horizontal, vertical);
             Debug.DrawRay(hit.hitPoint, direction * 10f);
-        }
+        }*/
     }
 
     private void PerformOriginalControlScheme(ContactPointInfo info, float horizontal, float vertical)

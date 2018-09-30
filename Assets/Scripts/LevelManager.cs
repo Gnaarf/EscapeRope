@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+
 public class LevelManager : MonoBehaviour
 {
     [SerializeField]
@@ -44,6 +47,7 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(_animationTime);
 
         Tutorial.gameObject.SetActive(false);
+
         FirstLevel.gameObject.SetActive(true);
 
     }

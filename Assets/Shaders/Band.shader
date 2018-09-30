@@ -10,6 +10,7 @@
 	{ 
 		Tags{ "Queue" = "Transparent" "RenderType" = "Transparent" }
 		Blend SrcAlpha OneMinusSrcAlpha
+		ZTest off
 		LOD 100
 
 		Pass
