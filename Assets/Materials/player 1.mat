@@ -74,6 +74,6 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 0.5546159, b: 0.1462264, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FrontPoint: {r: -1.5046276, g: 5.2033243, b: -6.0153656, a: 0}
+    - _FrontPoint: {r: -0.043628275, g: 0.4219846, b: 3.2909787, a: 0}
     - _PlayerColor: {r: 1, g: 0.55201143, b: 0, a: 1}
     - _Velocity: {r: 0, g: 0, b: 0, a: 0}
